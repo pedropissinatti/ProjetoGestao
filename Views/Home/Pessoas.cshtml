@@ -1,0 +1,60 @@
+﻿@{
+    ViewData["Title"] = "Pessoas";
+}
+<h1>@ViewData["Title"]</h1>
+
+
+<p>Pagina em construçãossssssssssssss.dsa.d.</p>
+
+
+<h1>Bem-vindo, @ViewData["UserName"]!</h1>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botão Div Colorido</title>
+    <style>
+        #minhaDiv {
+            width: 100px;
+            height: 100px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <button onclick="mudarCor()">Clique-me</button>
+    <div id="minhaDiv"></div>
+
+    <script>
+        // Função para mudar a cor da div
+        function mudarCor() {
+            var minhaDiv = document.getElementById("minhaDiv");
+            var corAtual = minhaDiv.style.backgroundColor;
+
+            // Verificar a cor atual e alterar para verde se for vermelha, caso contrário, alterar para vermelho
+            if (corAtual === "red" || corAtual === "") {
+                minhaDiv.style.backgroundColor = "green";
+                localStorage.setItem("corDaDiv", "green");
+            } else {
+                minhaDiv.style.backgroundColor = "red";
+                localStorage.setItem("corDaDiv", "red");
+            }
+        }
+
+        // Função para carregar a cor da div ao carregar a página
+        window.onload = function () {
+            var corSalva = localStorage.getItem("corDaDiv");
+            if (corSalva) {
+                var minhaDiv = document.getElementById("minhaDiv");
+                minhaDiv.style.backgroundColor = corSalva;
+            }
+        }
+    </script>
+
+</body>
+</html>

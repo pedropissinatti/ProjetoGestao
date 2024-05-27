@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <style>
+        body {
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            flex-direction: column;
+            height: 100vh;
+            box-sizing: border-box;
+            margin-left:0cm;
+        }
+
+        .painel-rapido {
+            display: flex;
+            justify-content: space-around;
+            width: 80%;
+            max-width: 1200px;
+            margin-top: 0;
+        }
+
+        .box {
+            width: 400px;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 20px;
+            color: white;
+            margin: 20px;
+        }
+
+        .box .title {
+                font-size: 2em; /* Tamanho do título */
+                margin-top: -0cm;
+                margin-bottom: -0.5cm; /* Margem inferior automática para empurrar o título para o topo */
+            }
+
+            .box .number {
+                padding-left: 1cm;
+                font-size: 10em; /* Tamanho do número */
+            }
+
+            .box .description {
+                font-size: 1.5em; /* Tamanho da descrição */
+                padding-left: 1cm; /* Ajuste para a descrição */
+            }
+
+        .valores-pagar {
+            background-color: #ff99cc;
+            margin-left: -6cm;
+        }
+
+            .valores-pagar .content {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+            }
+
+        .valores-pagos {
+            background-color: #ffcc66;
+            margin-left: -8cm;
+        }
+    </style>
+</head>
+<body>
+    <div class="text-left">
+        <h1 class="display-8">Painel rápido</h1>
+        <div class="painel-rapido">
+            <div class="box valores-pagar">
+                <div class="title">Valores a pagar</div>
+                <div class="content">
+                    <span class="number">2</span>
+                    <div class="description">Dívidas <br>Pendentes</div>
+                </div>
+            </div>
+            <div class="box valores-pagos">
+                <div class="title">Valores pagos</div>
+                <span class="number">80%</span>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <h1>@ViewData["Title"]</h1>
+        @{
+            if (User.Identity?.IsAuthenticated ?? false)
+            {
+                <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
+                    <button type="submit" class="nav-link btn btn-link text-dark">Deslogar</button>
+                </form>
+            }
+            else
+            {
+                <p></p>
+            }
+        }
+    </header>
+</body>
+</html>
